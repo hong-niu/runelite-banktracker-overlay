@@ -68,7 +68,7 @@ public class BankTrackerWidgetOverlay extends WidgetItemOverlay {
                 location.getY() + 13 + (graphics.getFontMetrics().getHeight() - 1) * 0 +11);
         graphics.setColor(Color.GREEN);
         graphics.drawString("" + formatNumber(gePrice), location.getX() + (config.showIcons() ? 11 : 4),
-                location.getY() + 12 + (graphics.getFontMetrics().getHeight() - 1) * 0+11);
+                location.getY() + 12 + (graphics.getFontMetrics().getHeight() - 1) * 0+11); //11 is height of text - probably
 
         //-graphics.getFontMetrics().stringWidth("%")
         graphics.setColor(Color.black);
