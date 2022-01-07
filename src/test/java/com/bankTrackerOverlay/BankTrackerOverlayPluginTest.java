@@ -7,7 +7,7 @@ public class BankTrackerOverlayPluginTest
 {
 	public static void main(String[] args) throws Exception
 	{
-		ExternalPluginManager.loadBuiltin(ExamplePlugin.class);
+		ExternalPluginManager.loadBuiltin(BankTrackerOverlayPlugin.class);
 		RuneLite.main(args);
 	}
 }

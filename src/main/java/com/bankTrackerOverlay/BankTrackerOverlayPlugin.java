@@ -11,13 +11,41 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.plugins.itemprices.ItemPricesConfig;
+import net.runelite.client.plugins.itemprices.ItemPricesOverlay;
+import net.runelite.client.ui.overlay.OverlayManager;
 
 @Slf4j
 @PluginDescriptor(
 	name = "Example"
 )
-public class ExamplePlugin extends Plugin
-{
+public class BankTrackerOverlayPlugin extends Plugin {
+
+	@Inject
+	private OverlayManager overlayManager;
+
+	@Inject
+	private ItemPricesOverlay overlay;
+
+	@Provides
+	ItemPricesConfig getConfig(ConfigManager configManager)
+	{
+		return configManager.getConfig(ItemPricesConfig.class);
+	}
+
+	@Override
+	protected void startUp() throws Exception
+	{
+		overlayManager.add(overlay);
+	}
+
+	@Override
+	protected void shutDown() throws Exception
+	{
+		overlayManager.remove(overlay);
+	}
+}
+/*
 	@Inject
 	private Client client;
 
@@ -51,3 +79,5 @@ public class ExamplePlugin extends Plugin
 		return configManager.getConfig(BankTrackerOverlayConfig.class);
 	}
 }
+
+ */
